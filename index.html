@@ -1,133 +1,287 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilson Cissel's Jokes</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"> <style>
+        /* Basic Reset & Font */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            display: flex;
+            flex-direction: column; /* Stack content vertically */
+        }
 
- <head>
-  
-  
-   <button class="button  button2". disabled>Back</button>
-  <a href="https://joke.wilsoncissel.com/2.html" >
-      <button class="button button1">Next</button>
-  
-   
-    <a href="https://wilsoncissel.com">
-   <img style = "float: left; margin: 2px 20px 10px 0; ; " src="https://www.wilsoncissel.com/pic.png"  alt=""  </img>
-     
-   </a>
+        /* Gradient Background */
+        body {
+            background: linear-gradient(90deg, #0dff76, #98ed41, #d0d721, #f6c02b, #ffa849, #ff936a, #ff868b, #ff82a8);
+            background-attachment: fixed; /* Keep gradient fixed during scroll */
+            color: #333; /* Darker text for better readability */
+        }
 
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-<style>
- 
-   body  {background: linear-gradient(90deg, #0dff76, #98ed41, #d0d721, #f6c02b, #ffa849, #ff936a, #ff868b, #ff82a8);}
-   </style>
-    <style>
-      .button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.6s;
-  
-}
+        /* Main Content Area */
+        .container {
+            width: 800px; /* <<<< Set FIXED width */
+            min-height: 400px; /* Set minimum height for consistent size */
+            margin: 20px auto; /* Center container horizontally */
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            flex-grow: 1; /* Allow container to grow if needed, but respect min-height */
+            display: flex;
+            flex-direction: column; /* Important for internal layout */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
 
-      
-      
-      .button1 {
-  background-color: white;
-  color: black;
-        border: 2px solid #e7e7e7;
-  
-      }
-      .button1:hover {background-color: #bdbcb9;}
-      
-      .button2 {
-  background-color: #9295a6;
-  color:#6b7a68;
-        border: 2px solid #e7e7e7;
-  
-      }
-      
+        /* Header Image */
+        .header-image {
+            float: left;
+            margin: 0 30px 20px 0; /* Adjusted right margin for bigger logo */
+            width: 150px; /* <<<< Increased logo size AGAIN */
+            height: auto;
+            border-radius: 5px;
+        }
+
+        /* Joke Page Styling */
+        .joke-page {
+            display: none; /* Hide all pages initially */
+            flex-grow: 1; /* Allow joke content area to fill available vertical space */
+            padding-bottom: 20px; /* Space above navigation */
+        }
+
+        .joke-page.active {
+            display: block; /* Show the active page */
+        }
+
+        /* Headings */
+        h2 {
+            color: #1a1a1a;
+            margin-top: 0;
+            padding-top: 10px; /* Add some space if image is present */
+            font-size: 1.8em;
+            line-height: 1.4;
+            overflow: hidden; /* Contain heading text flow if it wraps around the logo */
+        }
+
+        h2.question {
+             margin-bottom: 30px;
+             font-weight: bold;
+        }
+
+        h2.answer {
+            color: #0056b3;
+            font-style: italic;
+            font-size: 1.6em;
+        }
 
 
+        /* Navigation Area */
+        .navigation {
+            margin-top: auto; /* Push navigation to the bottom */
+            padding-top: 20px;
+            border-top: 1px solid #eee; /* Separator line */
+            display: flex;
+            justify-content: space-between; /* Space out buttons */
+            align-items: center;
+        }
 
-      </style>
+        /* Button Styling */
+        .button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 12px 28px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
 
-       <head>
+        .button:hover {
+            background-color: #0056b3;
+        }
 
-    
+        .button:active {
+             transform: scale(0.98);
+        }
 
-      
+        .button:disabled,
+        .button[disabled] {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+            box-shadow: none;
+             transform: none;
+        }
 
-       
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.3);
+            font-size: 0.9em;
+        }
 
-    
+        /* Clearfix for floated image */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
 
-   </head>
+        /* Responsive consideration: If screen is smaller than the box width + margins */
+        @media (max-width: 840px) { /* 800px width + 20px margin left/right */
+             .container {
+                width: 95%; /* Allow container to shrink on small screens */
+                margin-left: auto;
+                margin-right: auto;
+                min-height: auto; /* Allow height to adjust on mobile */
+            }
+             .header-image {
+                 width: 100px; /* Smaller logo on mobile */
+                 margin-right: 15px;
+             }
+              h2 {
+                 font-size: 1.5em; /* Adjust heading size */
+             }
+              h2.answer {
+                 font-size: 1.3em;
+             }
+        }
 
-    
 
-   </head>
+    </style>
+</head>
 
 <body>
 
+    <div class="container clearfix">
 
+        <a href="https://wilsoncissel.com" target="_blank" rel="noopener noreferrer">
+            <img class="header-image" src="https://www.wilsoncissel.com/pic.png" alt="Wilson Cissel Logo">
+        </a>
 
-  <h2>
+        <div class="joke-page active" id="page-0">
+            <h2>Welcome!</h2>
+            <p style="font-size: 1.1em; line-height: 1.6;">
+                This is the successor to my jokes YouTube channel. I've put together a collection of jokes here for you to enjoy.
+                Click "Next" to start!
+            </p>
+        </div>
 
-      Welcome to my jokes website, this is the replacement for my jokes youtube channel. I hope you enjoy.
-      
-    
+        <div class="joke-page" id="page-1">
+            <h2 class="question">What is a student's favorite food?</h2>
+            <br>
+            <h2 class="answer">Stew... because it sounds like 'stu-dents'!</h2>
+        </div>
 
-      
+        <div class="joke-page" id="page-2">
+            <h2 class="question">Why don't scientists trust atoms?</h2>
+            <br>
+            <h2 class="answer">Because they make up everything!</h2>
+        </div>
 
-   </h2>
-   
-   
-   <br>
-   <br>
-   
-    
+        <div class="joke-page" id="page-3">
+            <h2 class="question">What do you call a lazy kangaroo?</h2>
+            <br>
+            <h2 class="answer">Pouch potato!</h2>
+        </div>
 
+        <div class="joke-page" id="page-4">
+            <h2 class="question">Why did the scarecrow win an award?</h2>
+            <br>
+            <h2 class="answer">Because he was outstanding in his field!</h2>
+        </div>
 
-</h2>
-   
-   
-   
-   
-   <br>
-   <br>
-   <br>
-   <br>
-   
-   
-   
+        <div class="joke-page" id="page-5">
+             <h2 class="question">What do you call a fish wearing a bowtie?</h2>
+            <br>
+            <h2 class="answer">Sofishticated!</h2>
+        </div>
 
+        <div class="joke-page" id="page-6">
+            <h2 class="question">Why did the bicycle fall over?</h2>
+            <br>
+            <h2 class="answer">Because it was two tired!</h2>
+        </div>
 
+         <div class="joke-page" id="page-7">
+            <h2 class="question">How does a penguin build its house?</h2>
+            <br>
+            <h2 class="answer">Igloos it together!</h2>
+        </div>
 
-   
+        <div class="navigation">
+            <button class="button" id="back-btn" disabled>Back</button>
+            <span id="page-indicator">Page: Intro</span> <button class="button" id="next-btn">Next</button>
+        </div>
 
-<br>
-<br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
+    </div> <footer>
+       &nbsp; </footer>
 
+    <script>
+        const backBtn = document.getElementById('back-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const pages = document.querySelectorAll('.joke-page');
+        const pageIndicator = document.getElementById('page-indicator');
 
+        let currentPageIndex = 0;
+        const totalPages = pages.length;
 
+        function showPage(index) {
+            // Hide all pages
+            pages.forEach(page => page.classList.remove('active'));
 
+            // Show the target page
+            if (pages[index]) {
+                pages[index].classList.add('active');
+            }
+
+            // Update button states
+            backBtn.disabled = (index === 0);
+            nextBtn.disabled = (index === totalPages - 1);
+
+            // Update page indicator text
+            if (index === 0) {
+                pageIndicator.textContent = "Page: Intro";
+            } else {
+                 pageIndicator.textContent = `Page: ${index} / ${totalPages - 1}`; // Show current joke # out of total jokes
+            }
+
+             // Update current page index
+            currentPageIndex = index;
+        }
+
+        // Event Listeners
+        nextBtn.addEventListener('click', () => {
+            if (currentPageIndex < totalPages - 1) {
+                showPage(currentPageIndex + 1);
+            }
+        });
+
+        backBtn.addEventListener('click', () => {
+            if (currentPageIndex > 0) {
+                showPage(currentPageIndex - 1);
+            }
+        });
+
+        // Initial setup: Show the first page (Intro)
+        showPage(0);
+
+    </script>
 
 </body>
- 
- <footer>
-  <h3>Page: Intro</h3>
- </footer>
 
 </html>
